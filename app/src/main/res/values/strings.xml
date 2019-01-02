@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Horoscope</string>
+    <string name="title_home">Horoscope</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="text_horoscope">bla bla horoscope</string>
+</resources>

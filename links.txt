@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/22192291/how-to-change-the-status-bar-color-in-android
+
+http://developer.alexanderklimov.ru/android/sqlite/cathouse.php

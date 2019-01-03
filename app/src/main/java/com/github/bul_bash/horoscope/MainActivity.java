@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 //        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         horoscopeDBHelper = new HoroscopeDBHelper(this);
+        horoscopeDBHelper.createDataBase();
     }
 
 

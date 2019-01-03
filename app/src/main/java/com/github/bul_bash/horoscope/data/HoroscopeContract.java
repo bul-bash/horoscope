@@ -11,7 +11,7 @@ public final class HoroscopeContract {
     public static final class HoroscopeData implements BaseColumns{
         public final static String TABLE_NAME = "HOROSCOPE_DATA";
         public final static String _ID = BaseColumns._ID;
-        public final static String DATA = "DATA";
+        public final static String DATA = "data";
     }
 
 }

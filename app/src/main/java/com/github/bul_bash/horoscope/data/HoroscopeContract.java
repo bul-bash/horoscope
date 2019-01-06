@@ -19,6 +19,7 @@ public final class HoroscopeContract {
         public final static String TABLE_NAME = "CURRENT_HOROSCOPE_DATA";
         public final static String _ID = BaseColumns._ID;
         public final static String DATA = "data";
+        public final static String DATE = "date";
     }
 
 }

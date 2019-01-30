@@ -7,9 +7,13 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.bul_bash.horoscope.data.Data;
 import com.github.bul_bash.horoscope.data.HoroscopeContract;
@@ -44,6 +48,25 @@ public class MainActivity extends FragmentActivity {
         pager.setAdapter(pagerAdapter);
 
         pager.setCurrentItem(Data.PAGE_COUNT-2);
+
+        Toast.makeText(pager.getContext(), "scroll", Toast.LENGTH_LONG).show();
+
+        pager.addOnPageChangeListener( new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled( int position, float v, int i1 ) {
+                Toast.makeText(pager.getContext(), "scroll", Toast.LENGTH_LONG).show();
+
+
+            }
+
+            @Override
+            public void onPageSelected( int position ) {
+            }
+
+            @Override
+            public void onPageScrollStateChanged( int state ) {
+            }
+        } );
 
         pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 

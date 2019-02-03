@@ -19,9 +19,9 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class DataHelper {
-
 
 
     private HoroscopeDBHelper horoscopeDBHelper;
@@ -32,16 +32,46 @@ public class DataHelper {
         return horoscopeDBHelper;
     }
 
-    public DataHelper(Context context){
-        this.context=context;
+    public DataHelper(Context context) {
+        this.context = context;
     }
-    public DataHelper(){
+
+    public DataHelper() {
 
     }
 
-    public void createDb(){
+    public void createDb() {
         horoscopeDBHelper = new HoroscopeDBHelper(context);
         horoscopeDBHelper.createDataBase();
+        putSignsInDB(horoscopeDBHelper.getWritableDatabase());
+
+    }
+
+    public void putSignsInDB(SQLiteDatabase db) {
+        horoscopeDBHelper = new HoroscopeDBHelper(context);
+        ContentValues values = new ContentValues();
+        String[] signs = context.getResources().getStringArray(R.array.signs);
+        for (String sign : signs) {
+            values.put(HoroscopeContract.SignsData.DATA, sign);
+
+            db.insert(HoroscopeContract.SignsData.TABLE_NAME,
+                    null,
+                    values);
+        }
+
+    }
+
+
+    public void putProfileInDB(String sign) {
+        horoscopeDBHelper = new HoroscopeDBHelper(context);
+        SQLiteDatabase db = horoscopeDBHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(HoroscopeContract.ProfileData.ZODIAC_ID, sign);
+
+        db.insert(HoroscopeContract.ProfileData.TABLE_NAME,
+                null,
+                values);
+
     }
 
     public void selectRandomRecord() {
@@ -115,7 +145,7 @@ public class DataHelper {
 
         String[] selectionArgs = {"1"};
 
-        String orderBy = HoroscopeContract.CurrentHoroscopeData._ID + " DESC LIMIT "+(Data.PAGE_COUNT-1);
+        String orderBy = HoroscopeContract.CurrentHoroscopeData._ID + " DESC LIMIT " + (Data.PAGE_COUNT - 1);
 
         //SELECT * FROM TABLE_NAME ORDER BY RANDOM() LIMIT 1;
 
@@ -154,8 +184,8 @@ public class DataHelper {
         }
     }
 
-    private void loadDataToDb() throws IOException {
-        SQLiteDatabase db =horoscopeDBHelper.getWritableDatabase();
+    public void loadDataToDb() throws IOException {
+        SQLiteDatabase db = horoscopeDBHelper.getWritableDatabase();
         InputStream input = context.getAssets().open("db.txt");
 
         String outFileName = "/data/data/com.github.bul_bash.horoscope/databases/db.txt";
@@ -163,20 +193,20 @@ public class DataHelper {
 
         byte[] buffer = new byte[1024];
         int length;
-        while ((length = input.read(buffer))>0){
-            output.write(buffer,0,length);
+        while ((length = input.read(buffer)) > 0) {
+            output.write(buffer, 0, length);
         }
         output.flush();
         output.close();
         input.close();
 
-        File file =new File(outFileName);
+        File file = new File(outFileName);
         BufferedReader reader = new BufferedReader(new FileReader(file));
-        String str=null;
+        String str = null;
 
 
-        while ((str = reader.readLine())!=null){
-            if (!str.contains("$$")){
+        while ((str = reader.readLine()) != null) {
+            if (!str.contains("$$")) {
                 ContentValues values = new ContentValues();
                 values.put(HoroscopeContract.HoroscopeData.DATA, str);
 

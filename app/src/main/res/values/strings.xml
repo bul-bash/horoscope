@@ -1,14 +1,33 @@
 <resources>
     <string name="app_name">Horoscope</string>
-    <string name="title_home">Horoscope</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="text_horoscope">Hi! This is horoscope. Press button to start! </string>
 
-    <string name="title_activity_fullscreen">FullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank pageFragment</string>
+
+    <string name="action_settings">Настройки</string>
+    <string name="action_info">Инфо</string>
+
+    <string-array name="signs">
+        <item>Овен</item>
+        <item>Телец</item>
+        <item>Близнецы</item>
+        <item>Рак</item>
+        <item>Лев</item>
+        <item>Дева</item>
+        <item>Весы</item>
+        <item>Скорпион</item>
+        <item>Стрелец</item>
+        <item>Козерог</item>
+        <item>Водолей</item>
+        <item>Рыбы</item>
+    </string-array>
+
+    <string name="signKey">sign</string>
+    <string name="notificationKey">notification</string>
+
+    <string name="signTitle">Знак зодиака</string>
+    <string name="notificationTitle">Уведомления</string>
+
+    <string name="signSummary">Выберете свой знак</string>
+    <string name="notificationSummary">Разрешить присылать уведомления? Всё равно не работает</string>
 </resources>

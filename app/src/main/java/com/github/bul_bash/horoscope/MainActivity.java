@@ -54,13 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
         pager.setCurrentItem(Data.PAGE_COUNT-2);
 
-        Toast.makeText(pager.getContext(), "scroll", Toast.LENGTH_LONG).show();
-
         pager.addOnPageChangeListener( new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled( int position, float v, int i1 ) {
-                Toast.makeText(pager.getContext(), "scroll", Toast.LENGTH_LONG).show();
-
 
             }
 
@@ -145,7 +141,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.action_info:
-
+                Intent info = new Intent(this, InfoActivity.class);
+                startActivity(info);
                 return true;
 
             default:

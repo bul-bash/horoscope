@@ -1,11 +1,14 @@
 <resources>
-    <string name="app_name">Horoscope</string>
+    <string name="app_name">Уникальный Гороскоп</string>
     <string name="text_horoscope">Hi! This is horoscope. Press button to start! </string>
-
 
 
     <string name="action_settings">Настройки</string>
     <string name="action_info">Инфо</string>
+
+
+    <string name="app_name_2">Унылое Гавно</string>
+
 
     <string-array name="signs">
         <item>Овен</item>
